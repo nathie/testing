@@ -1,0 +1,61 @@
+nav {
+	background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid red;
+    height: 50px;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+}
+
+ul {
+	list-style: none;
+}
+
+ul li {
+	float: left;
+	margin: 10px;
+}
+
+section {
+	background: #fff url(../img/bg_tournament.png) 0 0 repeat-y fixed;
+	height: 1000px;
+	margin: 0 auto;
+	max-width: 1920px;
+	padding: 0;
+	position: relative;
+	width: 100%;
+}
+
+article.info {
+	background: url("../img/arrow.png") no-repeat scroll 0 50% transparent;
+    margin: 0 0 0 175px;
+    padding: 50px 0 0 40px;
+}
+
+.inside {
+	background: #fff;
+	border: 3px solid #ED1C24;
+    height: auto;
+    padding: 20px 0 0;
+    position: static;
+    width: 300px;
+}
+
+/*.inside:hover {
+	height: 250px; 
+	position: fixed;
+	width: 350px;
+	z-index: 5;
+}*/
+
+footer {
+	background: #fff;
+	border: 2px solid red;
+	bottom: 0;	
+	left:0;
+	position: fixed;
+	width: 100%;
+	z-index: 2;
+}

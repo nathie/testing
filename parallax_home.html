@@ -1,0 +1,130 @@
+<!DOCTYPE>
+<html>
+<head>
+	<title>Parallax test</title>
+	<link rel="stylesheet" type="text/css" href="styles/style.css">
+	<script type="text/javascript" src="script/jquery.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+
+			// Cache the Window object
+			$window = $(window);
+
+			// Cache the Y offset and the speed of each sprite
+			$('[data-type]').each(function() {
+			  $(this).data('offsetY', parseInt($(this).attr('data-offsetY')));
+			  $(this).data('speed', $(this).attr('data-speed'));
+			});
+
+			// For each element that has a data-type attribute
+			$('section[data-type="sprite"]').each(function(){
+
+				// Store some variables based on where we are
+				var $self = $(this),
+				    offsetCoords = $self.offset(),
+				    topOffset = offsetCoords.top;
+
+				$(window).scroll(function(){
+
+					// If this section is in view
+					if ( ($window.scrollTop() + $window.height()) > (topOffset) &&
+					( (topOffset + $self.height()) > $window.scrollTop() ) ) {
+
+					  // Scroll the background at var speed
+					  // the yPos is a negative value because we're scrolling it UP!
+					  var yPos = -($window.scrollTop() / $self.data('speed'));
+
+					  // If this element has a Y offset then add it on
+					  if ($self.data('offsetY')) {
+					    yPos += $self.data('offsetY');
+					  }
+
+					  // Put together our final background position
+					  //var coords = '50%'+ yPos + 'px';
+					  var coords = '0' + yPos + 'px';
+					  // Move the background
+					  $self.css({ backgroundPosition: coords });
+
+				  	}; // in view
+
+				}); // window scroll
+
+			});	// each data-type
+		}); // document ready	
+	</script>
+</head>
+<body>
+<div>
+	<nav>
+		<ul id="mainMenu">
+			<li>Home Logo</li>
+			<li>AVG</li>
+			<li>QUIZ</li>
+		</ul>
+		<ul id="signMenu">
+			<li>login with FB</li>
+			<li>Login</li>
+			<li>Sign Up</li>
+		</ul>
+	</nav>
+	<div id="content">
+		<section data-type="background" data-speed="2">
+			<article class="info" data-type="sprite" data-offsetY="100" data-Xposition="50%" data-speed="0.5">
+				<div class="inside">
+					<h2>Tournament Name</h2>
+					<p>
+						Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+					</p>
+				</div>
+			</article>
+			<article class="info" data-type="sprite" data-offsetY="100" data-Xposition="50%" data-speed="0.5">
+				<div class="inside">
+					<h2>Tournament Name 2</h2>
+					<p>
+						Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+					</p>
+				</div>
+			</article>
+			<article class="info" data-type="sprite" data-offsetY="100" data-Xposition="50%" data-speed="5">
+				<div class="inside">
+					<h2>Tournament Name 3</h2>
+					<p>
+						Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+					</p>
+				</div>
+			</article>
+			<article class="info" data-type="sprite" data-offsetY="100" data-Xposition="50%" data-speed="5">
+				<div class="inside">
+					<h2>Tournament Name 4</h2>
+					<p>
+						Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+					</p>
+				</div>
+			</article>
+			<article class="info" data-type="sprite" data-offsetY="100" data-Xposition="50%" data-speed="5">
+				<div class="inside">
+					<h2>Tournament Name 5</h2>
+					<p>
+						Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+					</p>
+				</div>
+			</article>
+<div class="end">
+			<h1>.</h1>
+			<h1>.</h1>
+			<h1>.</h1>
+		</div>
+			
+
+		</section>
+		
+	</div>
+	<footer>
+		<span>Option 1</span>
+		<span>Option 2</span>
+		<span>Option 3</span>
+	</footer>
+</div>
+
+</body>
+</html>
